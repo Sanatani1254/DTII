@@ -1,9 +1,8 @@
-
 a = input("Enter the expression:")
 list=[]
 list1=[]
 temp =""
-j=0;invalid=False
+j=1;invalid=False
 
 
 for i in a:
@@ -26,25 +25,26 @@ if(invalid!=True):
         if(list[j]=="*"):
             r=list[j-1]*list[j+1]
             list = list[:j-1]+[r]+list[j+2:]
-        if(list[j]=="/"):    
+        elif(list[j]=="/"):    
             r=list[j-1]/list[j+1]
             list = list[:j-1]+[r]+list[j+2:]
-        j+=1
+        else:
+            j+=2
         
         
         
-    j=0
+    j=1
     while(j<len(list)):
         if(list[j]=="+"):
             r=list[j-1]+list[j+1]
             list = list[:j-1]+[r]+list[j+2:]
-        if(list[j]=="-"):    
+        elif(list[j]=="-"):    
             r=list[j-1]-list[j+1]
             list = list[:j-1]+[r]+list[j+2:]
-        j+=1
+        else:
+            j+=2
             
 print(list[0])
-
 
 
 
