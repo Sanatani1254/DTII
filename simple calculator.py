@@ -1,4 +1,4 @@
-import re
+
 a = input("Enter the expression:")
 list=[]
 list1=[]
@@ -44,6 +44,7 @@ if(invalid!=True):
         j+=1
             
 print(list[0])
+
 
 
 
