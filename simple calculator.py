@@ -1,5 +1,6 @@
 a = input("Enter the expression:")
 list=[]
+print("YO")
 list1=[]
 temp =""
 j=1;invalid=False
