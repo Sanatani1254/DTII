@@ -1,6 +1,5 @@
 a = input("Enter the expression:")
 list=[]
-print("YO")
 list1=[]
 temp =""
 j=1;invalid=False
@@ -8,7 +7,7 @@ j=1;invalid=False
 
 for i in a:
     try:
-        if i not in "+-/*":
+        if i not in "+-/*":  #separated numbers and symbols
             temp+=i
         
         else:
@@ -21,7 +20,7 @@ for i in a:
         break
 
 list.append(float(temp))
-if(invalid!=True):
+if(invalid!=True):   #Multiplying and dividing fist according to BODMAS
     while(j<len(list)):
         if(list[j]=="*"):
             r=list[j-1]*list[j+1]
@@ -35,7 +34,7 @@ if(invalid!=True):
         
         
     j=1
-    while(j<len(list)):
+    while(j<len(list)):  #ADD and substraction
         if(list[j]=="+"):
             r=list[j-1]+list[j+1]
             list = list[:j-1]+[r]+list[j+2:]
