@@ -11,6 +11,9 @@ for i in a:
             temp+=i
         
         else:
+            if(len(temp)==0):             #Handling expresion like -1+4
+                temp+=i
+                continue
             list.append(float(temp))
             list.append(i)
             temp=""
