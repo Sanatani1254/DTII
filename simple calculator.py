@@ -4,10 +4,12 @@ list1=[]
 temp =""
 j=1;invalid=False
 
-
 for i in a:
-    try:
-        if i not in "+-/*":  #separated numbers and symbols
+    if i not in "0123456789+-*/()":    #not accepting anything otherthan allowed characters
+        invalid = True
+        break
+    try: 
+        if i not in "+-/*()":  #separating numbers and symbols
             temp+=i
         
         else:
@@ -22,10 +24,13 @@ for i in a:
         invalid=True
         break
 
-list.append(float(temp))
-if(invalid!=True):   #Multiplying and dividing fist according to BODMAS
-    while(j<len(list)):
-        if(list[j]=="*"):
+try:
+    list.append(float(temp))
+except:
+    pass
+if(invalid!=True):    
+    while range(len(list)-1):
+        if(list[j]=="*"): 
             r=list[j-1]*list[j+1]
             list = list[:j-1]+[r]+list[j+2:]
         elif(list[j]=="/"):    
@@ -36,18 +41,20 @@ if(invalid!=True):   #Multiplying and dividing fist according to BODMAS
         
         
         
-    j=1
-    while(j<len(list)):  #ADD and substraction
-        if(list[j]=="+"):
-            r=list[j-1]+list[j+1]
-            list = list[:j-1]+[r]+list[j+2:]
-        elif(list[j]=="-"):    
-            r=list[j-1]-list[j+1]
-            list = list[:j-1]+[r]+list[j+2:]
-        else:
-            j+=2
-            
-print(list[0])
+        j=1
+        while(j<len(list)):  #ADD and substraction
+            if(list[j]=="+"):
+                r=list[j-1]+list[j+1]
+                list = list[:j-1]+[r]+list[j+2:]
+            elif(list[j]=="-"):    
+                r=list[j-1]-list[j+1]
+                list = list[:j-1]+[r]+list[j+2:]
+            else:
+                j+=2
+if (invalid!=True):
+    print(list[0])
+else:
+    print("This program only accepts numbers ,*,/,+,- Be sure to not add spaces")
 
 
 
