@@ -3,7 +3,7 @@ list=[]
 list1=[]
 temp =""
 j=1;invalid=False
-
+ 
 for i in a:
     if i not in "0123456789+-*/()":    #not accepting anything otherthan allowed characters
         invalid = True
